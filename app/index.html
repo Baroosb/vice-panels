@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Panels — Cover Art Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">VICE PANELS</span>
+    <span class="brand-sub">cover art studio</span>
+  </div>
+  <p class="topbar-note">Your photos never leave this machine. No uploads, no account — just posters.</p>
+</header>
+
+<main class="app">
+  <section class="stage" id="stage">
+    <div class="canvas-wrap">
+      <canvas id="cover" width="920" height="518"></canvas>
+      <p class="stage-hint">Click a panel to select it, then drag inside it to reposition its photo.</p>
+    </div>
+    <div class="drop-veil" id="dropVeil">Drop photos to add them</div>
+  </section>
+
+  <aside class="panel">
+    <section class="step">
+      <h2><span class="step-no">1</span> Photos</h2>
+      <div class="row">
+        <button class="btn primary" id="addPhotosBtn" type="button">Add your photos</button>
+        <input type="file" id="fileInput" accept="image/*" multiple hidden>
+      </div>
+      <div class="tray" id="tray"></div>
+      <div class="row">
+        <button class="btn ghost" id="fillAllBtn" type="button">Put chosen photo in every panel</button>
+      </div>
+      <p class="fine">Samples are built in — click a photo to fill the selected panel.</p>
+    </section>
+
+    <section class="step">
+      <h2><span class="step-no">2</span> Layout &amp; grade</h2>
+      <div class="seg" id="layoutSeg">
+        <button type="button" class="seg-btn" data-layout="classic">Classic Grid</button>
+        <button type="button" class="seg-btn" data-layout="slice">Vice Slice</button>
+        <button type="button" class="seg-btn" data-layout="hero">Hero Strips</button>
+      </div>
+      <div class="seg" id="gradeSeg">
+        <button type="button" class="seg-btn" data-grade="neon">Neon Sunset</button>
+        <button type="button" class="seg-btn" data-grade="midnight">Midnight Vice</button>
+        <button type="button" class="seg-btn" data-grade="golden">Golden Hour</button>
+      </div>
+      <div class="ctl-head">
+        <span>Panel zoom — <em id="selectedLabel">panel 1</em></span>
+        <button class="btn mini" id="resetPanelBtn" type="button">Reset panel</button>
+      </div>
+      <input type="range" id="zoomRange" min="1" max="3" step="0.01" value="1">
+    </section>
+
+    <section class="step">
+      <h2><span class="step-no">3</span> Caption</h2>
+      <div class="caption-row">
+        <input class="text" id="caption1" type="text" maxlength="24" value="VICE CITY" aria-label="Caption line one">
+        <input class="text" id="caption2" type="text" maxlength="24" value="HEAT" aria-label="Caption line two">
+      </div>
+      <label class="ctl">
+        <span>Lettering size</span>
+        <input type="range" id="captionScale" min="0.6" max="1.5" step="0.01" value="1">
+      </label>
+    </section>
+
+    <section class="step">
+      <h2><span class="step-no">4</span> Export</h2>
+      <div class="seg" id="sizeSeg">
+        <button type="button" class="seg-btn" data-size="1080x1080">1080 × 1080</button>
+        <button type="button" class="seg-btn" data-size="1080x1350">1080 × 1350</button>
+        <button type="button" class="seg-btn" data-size="1920x1080">1920 × 1080</button>
+      </div>
+      <button class="btn export" id="exportBtn" type="button">Export PNG</button>
+    </section>
+  </aside>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
